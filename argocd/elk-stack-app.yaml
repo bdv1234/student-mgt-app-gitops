@@ -9,6 +9,8 @@ spec:
     repoURL: https://github.com/bdv1234/student-mgt-app-gitops.git
     targetRevision: main
     path: elk-stack
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default

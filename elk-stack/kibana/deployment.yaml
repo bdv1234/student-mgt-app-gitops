@@ -27,6 +27,6 @@ spec:
           value: "--max-old-space-size=768"
         resources:
           limits:
-            memory: 512Mi
-          requests:
             memory: 1Gi
+          requests:
+            memory: 512Mi

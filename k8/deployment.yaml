@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-mgt-api
+  labels:
+    app: student-mgt-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-mgt-api
+  template:
+    metadata:
+      labels:
+        app: student-mgt-api
+    spec:
+      containers:
+      - name: student-mgt-api
+        image: student-mgt-api:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: student-mgt-api-secrets

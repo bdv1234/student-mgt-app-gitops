@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-mgt-api
+  labels:
+    app: student-mgt-api
+spec:
+  type: ClusterIP
+  selector:
+    app: student-mgt-api
+  ports:
+  - name: http
+    port: 8000
+    targetPort: 8000

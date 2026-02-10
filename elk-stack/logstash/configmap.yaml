@@ -8,7 +8,7 @@ data:
     input {
       tcp {
         port => 5000
-        code => json
+        codec => json
         }
     }
 
@@ -24,7 +24,6 @@ data:
         index => "fastapi-logs-%{+YYYY.MM.dd}"
       }
       stdout {
-        code => rubydebug
+        codec => rubydebug
       }
     }
-

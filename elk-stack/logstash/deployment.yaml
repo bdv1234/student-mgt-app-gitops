@@ -30,11 +30,16 @@ spec:
         - name: config-volume
           mountPath: /usr/share/logstash/pipeline/logstash.conf
           subPath: logstash.conf
+        - name: config-volume
+          mountPath: /usr/share/logstash/config/logstash.yml
+          subPath: logstash.yml
+        - name: data-volume
+          mountPath: /usr/share/logstash/data
         resources:
           limits:
-            memory: 512Mi
+            memory: 1Gi
           requests:
-            memory: 256Mi
+            memory: 512Mi
       volumes:
       - name: config-volume
         configMap:
@@ -42,3 +47,8 @@ spec:
           items:
           - key: logstash.conf
             path: logstash.conf
+          - key: logstash.yml
+            path: logstash.yml
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: logstash-data

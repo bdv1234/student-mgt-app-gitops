@@ -17,6 +17,11 @@ data:
         remove_field => ["@version", "host" ]
       }
     }
+  logstash.yml: |
+    queue.type: persisted
+    queue.max_bytes: 512mb
+    path.queue: /usr/share/logstash/data/queue
+    path.dead_letter_queue: /usr/share/logstash/data/dead_letter_queue
 
     output {
       elasticsearch {

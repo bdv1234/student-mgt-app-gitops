@@ -4,6 +4,7 @@ metadata:
   name: logstash-data
   namespace: logging
 spec:
+  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
